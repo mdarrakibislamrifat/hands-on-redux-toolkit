@@ -118,3 +118,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.bg-primary-gradient {
+  background: linear-gradient(30deg, #dc02c3, #5c53fe);
+}
