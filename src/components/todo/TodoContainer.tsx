@@ -3,12 +3,22 @@ import { useAppSelector } from "@/redux/hook"
 import AddTodoModal from "./AddTodoModal"
 import Todocard from "./Todocard"
 import TodoFilter from "./TodoFilter"
+import { useGetTodosQuery } from "@/redux/api/api"
 
 
 
 const TodoContainer = () => {
-    const { todos } = useAppSelector((state) => state.todos)
+    // From local state
+    // const { todos } = useAppSelector((state) => state.todos)
 
+
+    // from server
+
+    const { data: todos, isLoading, isError } = useGetTodosQuery(undefined);
+
+    if (isLoading) {
+        return <p>Loading....</p>
+    }
 
     return (
         <div>
