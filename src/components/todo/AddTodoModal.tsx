@@ -16,16 +16,19 @@ const AddTodoModal = () => {
     const [description, setDescription] = useState("");
 
     const dispatch = useAppDispatch();
-    // const todo = useAppSelector((state) => state.todos.)
+
 
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
+        const randomString = Math.random().toString(36).substring(2, 9)
         const taskDetails = {
+            id: randomString,
             title: task,
             description: description,
 
         }
         dispatch(addTodo(taskDetails))
+
 
 
     }
