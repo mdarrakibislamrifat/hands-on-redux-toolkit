@@ -7,7 +7,7 @@ const Todocard = () => {
         <div className="bg-white rounded-md flex justify-between items-center p-3 border">
             <Checkbox />
             <p className="font-semibold">Todo Title</p>
-            <p>Time</p>
+            {/* <p>Time</p> */}
             <p>Descrition</p>
             <div className="space-x-5">
                 <Button className="bg-red-500 size-8"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
