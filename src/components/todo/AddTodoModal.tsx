@@ -1,43 +1,60 @@
+
+import { useState, type FormEvent } from "react"
 import { Button } from "../ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
 
 
+
 const AddTodoModal = () => {
+
+    const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        console.log({ task, description });
+    }
+
+
     return (
         <Dialog>
-            <form>
-                <DialogTrigger asChild>
-                    <Button variant="outline">Add Task</Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                        <DialogTitle>Edit profile</DialogTitle>
-                        <DialogDescription>
-                            Make changes to your profile here. Click save when you&apos;re
-                            done.
-                        </DialogDescription>
-                    </DialogHeader>
+
+            <DialogTrigger asChild>
+                <Button className="bg-primary-gradient text-xl font-semibold">Add Todo</Button>
+            </DialogTrigger>
+
+            <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                    <DialogTitle>Add Task</DialogTitle>
+                    <DialogDescription>
+                        Add your tasks that you want to finis.
+                    </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={onSubmit}>
                     <div className="grid gap-4">
                         <div className="grid gap-3">
-                            <Label htmlFor="name-1">Name</Label>
-                            <Input id="name-1" name="name" defaultValue="Task1" />
+                            <Label htmlFor="task">Task</Label>
+                            <Input onBlur={(e) => setTask(e.target.value)} id="task" name="task" defaultValue="Task1" />
                         </div>
                         <div className="grid gap-3">
-                            <Label htmlFor="username-1">Decription</Label>
-                            <Input id="username-1" name="username" defaultValue="@peduarte" />
+                            <Label htmlFor="description">Decription</Label>
+                            <Input onBlur={(e) => setDescription(e.target.value)} id="description" name="description" defaultValue="Description" />
                         </div>
                     </div>
-                    <DialogFooter>
+                    <div className="flex justify-end mt-2">
                         <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
+
+                            <Button type="submit">Save changes</Button>
                         </DialogClose>
-                        <Button type="submit">Save changes</Button>
-                    </DialogFooter>
-                </DialogContent>
-            </form>
-        </Dialog>
+                    </div>
+                </form>
+
+            </DialogContent>
+
+        </Dialog >
     )
 }
 
