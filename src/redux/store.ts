@@ -6,10 +6,10 @@ import { baseApi } from "./api/api";
 
 export const store = configureStore({
     reducer: {
-        [baseApi.reducerPath]:baseApi.reducer,
+        // [baseApi.reducerPath]:baseApi.reducer,
          todos: todoReducer
     },
-    middleware: (getDefaultMiddlewares)=>getDefaultMiddlewares().concat(baseApi.middleware)
+    // middleware: (getDefaultMiddlewares)=>getDefaultMiddlewares().concat(baseApi.middleware)
 })
 
 

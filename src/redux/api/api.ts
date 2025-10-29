@@ -11,7 +11,7 @@ export const baseApi = createApi({
             query: () => ({
                 url: '/todos',
                 method: 'GET'
-            })
+            }),
         })
     })
     

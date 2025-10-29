@@ -7,7 +7,8 @@ type TTodo = {
     id: string,
     title: string,
     description: string,
-    isCompleted?: boolean
+    isCompleted?: boolean,
+    priority: string
 }
 
 type TInitialState = {
